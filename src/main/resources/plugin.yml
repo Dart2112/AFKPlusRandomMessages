@@ -1,0 +1,6 @@
+name: AFKPlusRandomMessages
+version: ${project.version}
+main: net.lapismc.afkplusrandommessages.AFKPlusRandomMessages
+api-version: 1.16
+depend: [ AFKPlus ]
+authors: [ Dart2112 ]

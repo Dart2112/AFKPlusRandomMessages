@@ -1,0 +1,14 @@
+# {MSG} gets replaced by a message from below
+# this means you dont need to repeat your prefix/suffix in each option in the list
+Format: "&8[&6AFK&4+&8] {MSG}"
+# Should each message be paired up with the same index in the other list
+# e.g. if the second start message is chosen should the second stop message be chosen
+Pairs: true
+
+# List your start and stop messages in this list, if pairs is enabled make sure that the items line up in both lists
+StartMessages:
+  - "AFK for {PLAYER} has started"
+  - "{PLAYER} is off on an adventure in the real world"
+StopMessages:
+  - "AFK for {PLAYER} has ended"
+  - "{PLAYER} survived the real world and has returned"

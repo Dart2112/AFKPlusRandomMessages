@@ -7,8 +7,12 @@ Pairs: true
 
 # List your start and stop messages in this list, if pairs is enabled make sure that the items line up in both lists
 StartMessages:
-  - "AFK for {PLAYER} has started"
   - "{PLAYER} is off on an adventure in the real world"
+  - "I'm not sure that {PLAYER} is still around..."
+  - "{PLAYER} is standing still"
+  - "Just pretend that {PLAYER} isn't even here"
 StopMessages:
-  - "AFK for {PLAYER} has ended"
   - "{PLAYER} survived the real world and has returned"
+  - "Never mind, {PLAYER} is back"
+  - "{PLAYER} stood still for {TIME}, kinda impressive"
+  - "You can stop pretending, {PLAYER} came back"

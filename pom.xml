@@ -74,7 +74,7 @@
         <dependency>
             <groupId>net.lapismc</groupId>
             <artifactId>AFKPlus</artifactId>
-            <version>3.2.5</version>
+            <version>LATEST</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

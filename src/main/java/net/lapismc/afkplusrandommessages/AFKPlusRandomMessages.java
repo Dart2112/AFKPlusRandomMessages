@@ -1,9 +1,10 @@
 package net.lapismc.afkplusrandommessages;
 
+import net.lapismc.afkplus.AFKPlus;
 import net.lapismc.afkplus.api.AFKStartEvent;
 import net.lapismc.afkplus.api.AFKStopEvent;
+import net.lapismc.afkplus.util.core.LapisCoreConfiguration;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,11 +18,13 @@ public final class AFKPlusRandomMessages extends JavaPlugin implements Listener 
 
     private final HashMap<UUID, Integer> stopPair = new HashMap<>();
     private Random r;
+    private LapisCoreConfiguration config;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         r = new Random();
+        config = AFKPlus.getInstance().config;
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
@@ -53,7 +56,7 @@ public final class AFKPlusRandomMessages extends JavaPlugin implements Listener 
 
     private String applyFormatting(String rawMessage) {
         String message = getConfig().getString("Format", "&8[&6AFK&4+&8] {MSG}").replace("{MSG}", rawMessage);
-        message = ChatColor.translateAlternateColorCodes('&', message);
+        message = config.colorMessage(message);
         return message;
     }
 

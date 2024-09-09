@@ -30,10 +30,13 @@ public final class AFKPlusRandomMessages extends JavaPlugin implements Listener 
 
     @EventHandler
     public void AFKStart(AFKStartEvent e) {
-        List<String> messages = getConfig().getStringList("StartMessages");
-        int i = r.nextInt(messages.size());
-        String startMessage = messages.get(i);
-        e.setBroadcastMessage(applyFormatting(startMessage));
+        List<String> broadcastMessages = getConfig().getStringList("StartMessages");
+        List<String> selfMessages = getConfig().getStringList("SelfStartMessages");
+        int i = r.nextInt(broadcastMessages.size());
+        String startBroadcast = broadcastMessages.get(i);
+        String startSelf = selfMessages.get(i);
+        e.setBroadcastMessage(applyFormatting(startBroadcast));
+        e.setSelfMessage(applyFormatting(startSelf));
 
         if (getConfig().getBoolean("Pairs")) {
             stopPair.put(e.getPlayer().getUUID(), i);
@@ -42,16 +45,19 @@ public final class AFKPlusRandomMessages extends JavaPlugin implements Listener 
 
     @EventHandler
     public void AFKStop(AFKStopEvent e) {
-        List<String> messages = getConfig().getStringList("StopMessages");
+        List<String> broadcastMessages = getConfig().getStringList("StopMessages");
+        List<String> selfMessages = getConfig().getStringList("SelfStopMessages");
         int i;
         if (stopPair.containsKey(e.getPlayer().getUUID())) {
             i = stopPair.get(e.getPlayer().getUUID());
             stopPair.remove(e.getPlayer().getUUID());
         } else {
-            i = r.nextInt(messages.size());
+            i = r.nextInt(broadcastMessages.size());
         }
-        String stopMessage = messages.get(i);
-        e.setBroadcastMessage(applyFormatting(stopMessage));
+        String broadcastMessage = broadcastMessages.get(i);
+        String selfMessage = selfMessages.get(i);
+        e.setBroadcastMessage(applyFormatting(broadcastMessage));
+        e.setSelfMessage(applyFormatting(selfMessage));
     }
 
     private String applyFormatting(String rawMessage) {

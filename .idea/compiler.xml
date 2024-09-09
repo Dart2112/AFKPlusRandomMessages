@@ -9,8 +9,5 @@
         <module name="AFKPlusRandomMessages" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="AFKPlusRandomMessages" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,18 +1,31 @@
 # {MSG} gets replaced by a message from below
-# this means you dont need to repeat your prefix/suffix in each option in the list
-Format: "&8[&6AFK&4+&8] {MSG}"
+# this means you don't need to repeat your prefix/suffix in each option in the list
+Format: "&8[&6AFK&4+&8] &p{MSG}"
 # Should each message be paired up with the same index in the other list
 # e.g. if the second start message is chosen should the second stop message be chosen
 Pairs: true
 
 # List your start and stop messages in this list, if pairs is enabled make sure that the items line up in both lists
 StartMessages:
-  - "{PLAYER} is off on an adventure in the real world"
-  - "I'm not sure that {PLAYER} is still around..."
+  - "&s{PLAYER}&p is off on an adventure in the real world"
+  - "I'm not sure that &s{PLAYER}&p is still around..."
   - "{PLAYER} is standing still"
-  - "Just pretend that {PLAYER} isn't even here"
+  - "Just pretend that &s{PLAYER}&p isn't even here"
 StopMessages:
-  - "{PLAYER} survived the real world and has returned"
-  - "Never mind, {PLAYER} is back"
-  - "{PLAYER} stood still for {TIME}, kinda impressive"
-  - "You can stop pretending, {PLAYER} came back"
+  - "&s{PLAYER}&p survived the real world and has returned"
+  - "Never mind, &s{PLAYER}&p is back"
+  - "{PLAYER} stood still for &s{TIME}&p, kinda impressive"
+  - "You can stop pretending, &s{PLAYER}&p came back"
+#These messages are only sent to the player starting or stopping AFK
+#There must be as many self messages as there are broadcast messages
+#If number 1 is chosen from the upper list, number 1 will be chosen from the self list
+SelfStartMessages:
+  - "You must be off on an adventure in the real world"
+  - "I'm not sure that you are still around..."
+  - "You are standing still"
+  - "Just pretend that &s{PLAYER}&p isn't even here"
+SelfStopMessages:
+  - "You survived the real world and have returned"
+  - "Never mind, you are back"
+  - "You stood still for &s{TIME}&p, kinda impressive"
+  - "You can stop pretending, &s{PLAYER}&p came back"
